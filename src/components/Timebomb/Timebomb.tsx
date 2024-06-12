@@ -47,6 +47,7 @@ export const Timebomb = (props: TimebombProps) => {
   }, [props.isCountingDownList]);
 
   return <div className="bomb-countdown-tile">
+    <div><img src="../../public/timer.png" alt="bomb" height="40px"/></div>
     <div className="bomb-name">{props.name}</div>
     <div className={countDown === 0 ? 'countdown exploded': 'countdown'}>
       {getCountdownText(countDown)}

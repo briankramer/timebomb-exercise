@@ -7,7 +7,7 @@ export default function App() {
   const [isCountingDownList, setIsCountingDownList] = useState<(boolean | null)[]>([null, null, null, null])
 
   return (
-    <>
+    <div className="app">
       <TimebombList
         isCountingDownList={isCountingDownList}
         setIsCountingDownList={setIsCountingDownList}
@@ -16,6 +16,6 @@ export default function App() {
         isCountingDownList={isCountingDownList}
         setIsCountingDownList={setIsCountingDownList}
       />
-    </>
+    </div>
   );
 }
