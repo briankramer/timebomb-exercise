@@ -45,7 +45,7 @@ describe("ExplodeButton", () => {
         setIsCountingDownList={() => {}}
       />
     );
-    const explodedClass = document.querySelector(".explode-button-exploded");
+    const explodedClass = document.querySelector(".explode-button:disabled");
     expect(explodedClass).toBeTruthy();
   })
 
@@ -56,7 +56,7 @@ describe("ExplodeButton", () => {
         setIsCountingDownList={() => {}}
       />
     );
-    const explodedClass = document.querySelector(".explode-button-exploded");
+    const explodedClass = document.querySelector(".explode-button:disabled");
     expect(explodedClass).toBeFalsy();
   });
 
@@ -67,7 +67,7 @@ describe("ExplodeButton", () => {
         setIsCountingDownList={() => {}}
       />
     );
-    const explodedClass = document.querySelector(".explode-button-exploded");
+    const explodedClass = document.querySelector(".explode-button:disabled");
     expect(explodedClass).toBeFalsy();
   })
 });
