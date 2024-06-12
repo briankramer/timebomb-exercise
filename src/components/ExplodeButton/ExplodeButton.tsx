@@ -16,8 +16,9 @@ const getExplodeButtonText = (isCountingDown: (boolean | null)[]): string => {
 export const ExplodeButton = (props: ExplodeButtonProps) => {
     return <div className="explode-button-container">
         <button
-            className={props.isCountingDownList.some(timer => timer === true || timer === null) ? "explode-button": "explode-button explode-button-exploded"}
+            className="explode-button"
             onClick={() => props.setIsCountingDownList([true, true, true, true])}
+            disabled={props.isCountingDownList.every(timer => timer === false)}
         >
             {getExplodeButtonText(props.isCountingDownList)}
         </button>

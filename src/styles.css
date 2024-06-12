@@ -51,9 +51,10 @@
   margin-top: 20px;
 }
 
-.explode-button-exploded {
+.explode-button:disabled {
   background-color: rgba(245, 205, 200, 0.8);
   border-color: rgba(245, 205, 200, 1);
   border-style: solid;
   border-width: 2px;
+  color: black;
 }
