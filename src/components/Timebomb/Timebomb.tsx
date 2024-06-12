@@ -30,17 +30,16 @@ export const Timebomb = (props: TimebombProps) => {
   useEffect(() => {
     if (props.isCountingDownList[props.index]) {
       const interval = setInterval(() => {
-          const now = new Date().getTime();
-          const remainingTime = Math.max(0, countDownDate - now);
-          const countDownValue = Math.floor((remainingTime % (1000 * 60)) / 1000)
-          setCountDown(countDownValue);
-          if (countDownValue === 0) {
-            
-            let countingDownList = props.isCountingDownList;
-            countingDownList[props.index] = false;
-            console.log('countingDownList', countingDownList)
-            props.setIsCountingDown(countingDownList);
-          }
+        const now = new Date().getTime();
+        const distance = Math.max(0, countDownDate - now);
+        if (distance <= 0) {
+          props.setIsCountingDown(props.isCountingDownList.map((isCountingDown, index) => {
+            return index === props.index ? false : isCountingDown
+          }));
+          setCountDown(0);
+        } else {
+          setCountDown(Math.floor((distance % (1000 * 60)) / 1000));
+        }
       }, 1000);
 
       return () => clearInterval(interval);
