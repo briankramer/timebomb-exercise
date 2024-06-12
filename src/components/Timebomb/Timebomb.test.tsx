@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Timebomb } from "./Timebomb";
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 
 describe("Timebomb", () => {
   it("displays the bomb name", () => {
@@ -72,5 +72,39 @@ describe("Timebomb", () => {
     );
     const explodedClass = document.querySelector(".exploded");
     expect(explodedClass).toBeTruthy();
-  })
+  });
+
+  it("calls setIsCountingDown with false when finished", () => {
+    const setIsCountingDown = vi.fn();
+    render(
+      <Timebomb
+        secondsToCountdown={1}
+        isCountingDownList={[true]}
+        index={0}
+        name="Bomb Z"
+        setIsCountingDown={setIsCountingDown}
+      />
+    );
+    
+    setTimeout(() => {
+      expect(setIsCountingDown).toHaveBeenCalledWith(false);
+    }, 1000);
+  });
+
+  it("calls setIsCountingDown with true when running", () => {
+    const setIsCountingDown = vi.fn();
+    render(
+      <Timebomb
+        secondsToCountdown={5}
+        isCountingDownList={[true]}
+        index={0}
+        name="Bomb Z"
+        setIsCountingDown={setIsCountingDown}
+      />
+    );
+    
+    setTimeout(() => {
+      expect(setIsCountingDown).toHaveBeenCalledWith(true);
+    }, 1000);
+  });
 });
