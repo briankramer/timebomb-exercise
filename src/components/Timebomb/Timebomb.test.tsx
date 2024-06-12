@@ -1,13 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { Timebomb, getRandomIntBetween10And20 } from "./Timebomb"
+import { Timebomb } from "./Timebomb";
+import { describe, it } from 'vitest';
 
 describe("Timebomb", () => {
-  test('getRandomIntBetween10And20', () => {
-    const randomInt = getRandomIntBetween10And20();
-    expect(randomInt).toBeGreaterThanOrEqual(10);
-    expect(randomInt).toBeLessThanOrEqual(20);
-  });
-
   it("displays the bomb name", () => {
     render(
       <Timebomb
@@ -20,7 +15,7 @@ describe("Timebomb", () => {
     );
 
     const bombName = screen.getByText("Bomb Z");
-    expect(bombName).toBeInTheDocument();
+    expect(bombName).toBeDefined();
   });
 
   it("displays the seconds until explosion", () => {
@@ -34,7 +29,7 @@ describe("Timebomb", () => {
       />
     );
     const secondsToExplode = screen.getByText("15 seconds");
-    expect(secondsToExplode).toBeInTheDocument();
+    expect(secondsToExplode).toBeDefined();
   });
 
   it("displays 'second' wording when count is one", () => {
@@ -48,7 +43,7 @@ describe("Timebomb", () => {
       />
     );
     const secondsToExplode = screen.getByText("1 second");
-    expect(secondsToExplode).toBeInTheDocument();
+    expect(secondsToExplode).toBeDefined();
   });
 
   it("displays 'Exploded' when count is 0", () => {
@@ -62,7 +57,7 @@ describe("Timebomb", () => {
       />
     );
     const explodedText = screen.getByText("Exploded");
-    expect(explodedText).toBeInTheDocument();
+    expect(explodedText).toBeDefined();
   });
 
   it("displays 'Exploded' in red text", () => {

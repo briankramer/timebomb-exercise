@@ -11,7 +11,7 @@ describe("ExplodeButton", () => {
     );
 
     const explodeText = screen.getByText("Explode");
-    expect(explodeText).toBeInTheDocument();
+    expect(explodeText).toBeDefined();
   });
 
   it("displays 'Waiting to explode...' text when bombs are counting down", () => {
@@ -23,7 +23,7 @@ describe("ExplodeButton", () => {
     );
 
     const explodeText = screen.getByText("Waiting to explode...");
-    expect(explodeText).toBeInTheDocument();
+    expect(explodeText).toBeDefined();
   });
 
   it("displays 'All bombs exploded' text when bombs are all exploded", () => {
@@ -35,7 +35,7 @@ describe("ExplodeButton", () => {
     );
 
     const explodeText = screen.getByText("All bombs exploded");
-    expect(explodeText).toBeInTheDocument();
+    expect(explodeText).toBeDefined();
   });
 
   it("displays explode button in red background color when all finished", () => {

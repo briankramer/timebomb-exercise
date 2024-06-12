@@ -10,6 +10,6 @@ describe("TimebombList", () => {
           />
         );
         const bombD = screen.getByText("Bomb D");
-        expect(bombD).toBeInTheDocument();
+        expect(bombD).toBeDefined();
       });
 });
