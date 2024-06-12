@@ -2,8 +2,8 @@ import { Timebomb } from "../Timebomb/Timebomb";
 import { getRandomIntBetween10And20 } from "../utils/utils"
 
 interface TimebombListProps {
-    isCountingDown: (boolean | null)[]
-    setIsCountingDown: (isCountingDown: (boolean | null)[]) => void;
+    isCountingDownList: (boolean | null)[]
+    setIsCountingDownList: (isCountingDown: (boolean | null)[]) => void;
 }
 
 export const TimebombList = (props: TimebombListProps) => {
@@ -12,12 +12,12 @@ export const TimebombList = (props: TimebombListProps) => {
     return (
         <ul className="timebomb-list">
             {bombNames.map((name, key) => {
-                return <li>
+                return <li key={key}>
                     <Timebomb
                         name={`Bomb ${name}`}
                         secondsToCountdown={getRandomIntBetween10And20()}
-                        isCountingDown={props.isCountingDown}
-                        setIsCountingDown={props.setIsCountingDown}
+                        isCountingDownList={props.isCountingDownList}
+                        setIsCountingDown={props.setIsCountingDownList}
                         index={key}
                     />
                 </li>

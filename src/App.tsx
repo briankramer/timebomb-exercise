@@ -1,11 +1,21 @@
 import "./styles.css";
-import { ContextProviderComponent } from "./Context";
-import { UsersList } from "./components/UsersList/UsersList";
-import { Timebomb } from "components/Timebomb/Timebomb";
+import { useState } from 'react'
+import { TimebombList } from "./components/TimebombList/TimebombList";
+import { ExplodeButton } from "./components/ExplodeButton/ExplodeButton";
+
 export default function App() {
+  const [isCountingDownList, setIsCountingDownList] = useState<(boolean | null)[]>([null, null, null, null])
+
   return (
-    <ContextProviderComponent>
-      <Timebomb name="Bomb A" />
-    </ContextProviderComponent>
+    <>
+      <TimebombList
+        isCountingDownList={isCountingDownList}
+        setIsCountingDownList={setIsCountingDownList}
+      />
+      <ExplodeButton
+        isCountingDownList={isCountingDownList}
+        setIsCountingDownList={setIsCountingDownList}
+      />
+    </>
   );
 }

@@ -2,3 +2,32 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.timebomb-list {
+
+}
+
+.bomb-countdown-tile {
+  display: flex;
+  justify-content: space-around;
+  max-width: 400px;
+  height: 50px;
+  background-color: #dddddd;
+  margin-bottom: 10px;
+}
+
+.bomb-name {
+  padding-top: 15px;
+}
+
+.countdown {
+  padding-top: 15px;
+}
+
+.exploded {
+  color: red;
+}
+
+.explode-button {
+  
+}

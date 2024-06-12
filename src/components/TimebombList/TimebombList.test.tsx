@@ -5,8 +5,8 @@ describe("TimebombList", () => {
     it("displays four bombs", () => {
         render(
           <TimebombList
-            isCountingDown={[false, false, false, false]}
-            setIsCountingDown={() => {}}
+            isCountingDownList={[false, false, false, false]}
+            setIsCountingDownList={() => {}}
           />
         );
         const bombD = screen.getByText("Bomb D");
